@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    int n, i, bt[10], wt[10];
+    printf("Enter number of processes: ");
+    scanf("%d", &n);
+
+    for(i=0;i<n;i++)
+        scanf("%d", &bt[i]);
+
+    wt[0]=0;
+    for(i=1;i<n;i++)
+        wt[i]=wt[i-1]+bt[i-1];
+
+    for(i=0;i<n;i++)
+        printf("P%d Waiting Time: %d\n", i+1, wt[i]);
+
+    return 0;
+}
+OUTPUT
+
+Enter number of processes: 3
+5
+3
+8
+P1 Waiting Time: 0
+P2 Waiting Time: 5
+P3 Waiting Time: 8
