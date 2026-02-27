@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main() {
+    int n, i, j, bt[10], temp;
+
+    printf("Enter number of processes: ");
+    scanf("%d", &n);
+
+    for(i=0;i<n;i++)
+        scanf("%d", &bt[i]);
+
+    for(i=0;i<n;i++)
+        for(j=i+1;j<n;j++)
+            if(bt[i] > bt[j]) {
+                temp=bt[i];
+                bt[i]=bt[j];
+                bt[j]=temp;
+            }
+
+    printf("Execution order:\n");
+    for(i=0;i<n;i++)
+        printf("%d ", bt[i]);
+
+    return 0;
+}
+
+OUTPUT
+
+Enter number of processes: 3
+5
+3
+8
+Execution order:
+3 5 8 
